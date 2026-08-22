@@ -9,3 +9,25 @@ pacakges are the basic code that is written by some other programmer and they co
 for building server we must need a basic code every time that basic code is present in "Exprees.js" package so thats why we will use it for backend ..
 
 
+// package initialize 
+
+// To bring the package and the inside code into your own machine{pc / laptop} you simply do 
+
+1. npm init -y [ in terminal ] to start a basic node js project
+2. code---
+
+const express = require("express");     //express is the name of package you have to wirte the package name you want to initialize
+
+const app = express(); // here an instance of the package is creatd and stored inside app named variable
+// but still now server is not started its jut created 
+// for as to start server you have to type node server.js in terminal (you have to wirte file name in place of server)
+
+app.listen(3000, (req , res) => {                           //
+        console.log("" Server is running on port no 3000)   // just a call back message it will show when server gets started
+})
+
+
+//node server.js  server.js  executes the server.js file and then listen starts the express server and listens for requests on specifed port
+
+
+
