@@ -1,0 +1,11 @@
+// We will use " Express.js " package to create server , it helps to build really really good servers
+
+//packages ---
+
+pacakges are the basic code that is written by some other programmer and they convert their code into a package and push it on the "Npm.js" 
+
+
+
+for building server we must need a basic code every time that basic code is present in "Exprees.js" package so thats why we will use it for backend ..
+
+

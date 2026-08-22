@@ -1,0 +1,21 @@
+// Server --- Server is a machine which have its own ram , operating system and processor , the server is programmed so that it can response according to the request send by the frontend .
+
+// example :- you search for laptop in amazon or flipkart the server is programmed in a way that it shows you all the related products.
+
+// there are many programming languages for server programming , like --- 
+
+1. Java
+2. Python
+3. Ruby 
+4. Dotnet
+5. JavaScript
+6. Go
+
+
+// We will use " javascript " for as to create server
+
+
+// By using javascript we will need "Node.js" to start our server 
+//  We can simply download node.js from official site
+
+
