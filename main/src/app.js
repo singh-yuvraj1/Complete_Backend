@@ -1,5 +1,5 @@
 const express = require("express")
-const noteModel = require("./models/note_model")
+const noteModel = require("./models/note.model")
 
 const app = express()
 const notes = []

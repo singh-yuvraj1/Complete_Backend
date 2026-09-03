@@ -14,3 +14,4 @@ In basic code folder we will discuss all the starting code basics that must be k
 Then watch server.js in same folder
 
 
+mongodb+srv://yuvraj-singh:<db_password>@notes-app.qhvgtdn.mongodb.net/
