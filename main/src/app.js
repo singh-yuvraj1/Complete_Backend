@@ -1,38 +1,135 @@
-const express = require("express")
-const noteModel = require("./models/note.model")
-
+const express = require('express')
+const noteModel = require('./models/note.model')
 const app = express()
 
-const notes = []
 
+const notes =[]
 app.use(express.json())
 
-//---------------CRUD OPERATIONS----------------------
+//CRUD  
 
-//1. post 
+//---------Post------------
 
-app.post("/notes" , async(req , res)=>{
-    const data = req.body
-    noteModel.create({
-        title : data.title ,
-        description : data.description 
+app.post('/notes', async (req ,res)=>{
+    data = req.body
+    await noteModel.create({
+      title : data.title,
+      descrription : data.descrription  
     })
-    res.status(201).send({
-        message : "Note created Successfully"
+    res.status(201).json({
+        message : "Note Created Suucessfully"
     })
 })
 
-app.get("/notes" , (req , res)=>{
-    const notes = noteModel.find()
+
+//----------Get---------------------------
+
+app.get('/notes' , async (req, res)=>{
+    
+    const notes = await noteModel.find()        //find always return an array , if not found returns empty array
     res.status(200).json({
         message : "Notes fetched successfully",
-        notes : notes
+        notes: notes
     })
 })
 
+
+//-to find one specified  note
+app.get('/notes', async(req, res)=>{
+    const notes = await noteModel.findOne({
+        title : text_title     /// it will find only such described title , if not found then raises NUll
+    })
+   
+})
+
+
+//----to delete 
+
+app.delete('notes/:id' , async(req, res)=>{
+    const id = req.params.id
+    await noteModel.findOneAndDelete({
+        _id : id
+    })
+    res.status(200).json({
+        message: "Note deleted Successfully"
+    })
+})
 
 
 module.exports = app
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const express = require("express")
+// const noteModel = require("./models/note.model")
+
+// const app = express()
+
+// const notes = []
+
+// app.use(express.json())
+
+// //---------------CRUD OPERATIONS----------------------
+
+// //1. post 
+
+// app.post("/notes" , async(req , res)=>{
+//     const data = req.body
+//     noteModel.create({
+//         title : data.title ,
+//         description : data.description 
+//     })
+//     res.status(201).send({
+//         message : "Note created Successfully"
+//     })
+// })
+
+// app.get("/notes" , (req , res)=>{
+//     const notes = noteModel.find()
+//     res.status(200).json({
+//         message : "Notes fetched successfully",
+//         notes : notes
+//     })
+// })
+
+
+
+// module.exports = app
 
 
 

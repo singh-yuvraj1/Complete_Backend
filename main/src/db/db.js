@@ -1,8 +1,7 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 async function connectDB(){
-    await mongoose.connect("mongodb+srv://yuvraj-singh:Yuvraj234783@notes-app.qhvgtdn.mongodb.net/Loki")
-    console.log("Connected to Database successfully")
+    await mongoose.connect('mongodb+srv://yuvraj-singh:Yuvraj234783@notes-app.qhvgtdn.mongodb.net/databaseee"')
 }
 
 module.exports = connectDB
@@ -19,6 +18,19 @@ module.exports = connectDB
 
 
 
+
+
+
+
+
+// const mongoose = require("mongoose")
+
+// async function connectDB(){
+//     await mongoose.connect("mongodb+srv://yuvraj-singh:Yuvraj234783@notes-app.qhvgtdn.mongodb.net/Loki")
+//     console.log("Connected to Database successfully")
+// }
+
+// module.exports = connectDB
 
 
 
