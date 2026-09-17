@@ -8,59 +8,94 @@ app.use(express.json())
 
 //CRUD  
 
-//---------Post------------
 
-app.post('/notes', async (req ,res)=>{
-    data = req.body
+//post 
+
+app.post('/notes', async(req, res)=>{
+    const data = req.body
     await noteModel.create({
-      title : data.title,
-      descrription : data.descrription  
+        title : data.title ,
+        description : data.description
     })
     res.status(201).json({
-        message : "Note Created Suucessfully"
+        message : "Note created Successfullly"
     })
 })
 
 
-//----------Get---------------------------
+//Get
+// to get all data 
 
-app.get('/notes' , async (req, res)=>{
-    
-    const notes = await noteModel.find()        //find always return an array , if not found returns empty array
+app.get('/notes' , async(req, res)=>{
+    await noteModel.find()
     res.status(200).json({
-        message : "Notes fetched successfully",
-        notes: notes
+        message : " Notes fetched Successfully"
+    })
+})
+
+//to find specific or one data note with find -------find returns arrray of objects and it will find all the matching notes where findone finds only first
+
+app.get('/notess', async(req, res)=>{
+    const title = req.query.title
+    const description = req.query.description
+    await noteModel.find({
+        title : title,
+        description : description
+    })
+    res.status(200).json({
+        message: "Note Fetched succesffully"
     })
 })
 
 
-//-to find one specified  note
-app.get('/notes', async(req, res)=>{
-    const notes = await noteModel.findOne({
-        title : text_title     /// it will find only such described title , if not found then raises NUll
+//to find specific or one data note with findOne 
+
+app.get('notesss' , async(req, res)=>{
+    const title = req.query.title
+    const description = req.query.description
+    await noteModel.findOne({
+        title : title,
+        description : description 
     })
-   
+    res.status(200).json({
+        message :" Note Fetched Succesfully"
+    })
 })
 
 
-//----to delete 
 
-app.delete('notes/:id' , async(req, res)=>{
+
+
+
+//to del
+
+app.delete('/notes/:id' , async(req , res)=>{
     const id = req.params.id
     await noteModel.findOneAndDelete({
         _id : id
     })
     res.status(200).json({
-        message: "Note deleted Successfully"
+        message : " Note deleted successfully"
     })
 })
 
 
-module.exports = app
+//to  update
 
-
-
-
+app.patch("notes/:id", async(req,res)=>{
+    const id = req.params.id
+    const title = req.body.title
+    const description = req.body.description
+    await noteModel.findOneAndUpdate(
+        {
+            _id : id
+        },
+        {
+            title : title, 
+            description : description
+        })
+        
+})
 
 
 
