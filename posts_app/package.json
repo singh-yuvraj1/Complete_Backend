@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@imagekit/nodejs": "^7.12.1",
     "@imagekit/react": "^5.0.3",
     "dotenv": "^18.0.4",
     "express": "^5.2.1",
