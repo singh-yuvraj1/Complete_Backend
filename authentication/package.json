@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.2.1",
-    "mongoose": "^9.10.4"
+    "mongoose": "^9.10.4",
+    "routes": "^2.1.0"
   }
 }
